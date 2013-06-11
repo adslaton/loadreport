@@ -3,19 +3,21 @@ SHELL := /bin/bash
 
 
 ## set target specific variables ##
-site = alpha.cnn.com
+
+# site param that is passed in
+SITE = ${site}
 
 # load js file
-load = loadreport.js
+LOAD = loadreport.js
 
 # speed js file
-speed = speedreport.js
+SPEED = speedreport.js
 
 # json || csv
-format = json
+FORMAT = json
 
 # performance || performance cache
-type = performance
+TYPE = performance
 
 
 # define targets
@@ -23,17 +25,17 @@ type = performance
 
 
 test:
-	phantomjs $(speed) http://$(site)
+	phantomjs $(SPEED) http://$(SITE)
 
 
 test-speed: test
 
 
 test-load:
-	phantomjs $(load) http://$(site) $(type) $(format)
+	phantomjs $(LOAD) http://$(SITE) $(TYPE) $(FORMAT)
 
 
 clean:
-	rm -f speedreports/$(site).html
-	rm -f speedreports/$(site).js
-	rm -f reports/$(load)on
+	rm -f speedreports/$(SITE).html
+	rm -f speedreports/$(SITE).js
+	rm -f reports/$(LOAD)on
