@@ -80,6 +80,9 @@ function printToFile(data) {
         g = fs.open('speedreports/' + myjson  + '.js', "w");
         g.writeLine('var reportdata = ' + data + ';');
         g.close();
+        g = g = fs.open('speedreports/' + myjson  + '.json', "w");
+        g.writeLine(data);
+        g.close();
 
         if(!fs.exists('speedreport.html')){
             html = fs.read('loadreport/speedreport.html');

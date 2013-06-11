@@ -1,1 +1,5 @@
 phantomjs
+/speedreports/*
+/reports/*
+/readme/*
+/filmstrip/*
